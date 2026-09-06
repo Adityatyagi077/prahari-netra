@@ -1,0 +1,16 @@
+node_modules/
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+dist/
+build/
+.vite/
+coverage/
+*.log
+.DS_Store
+*.tsbuildinfo
