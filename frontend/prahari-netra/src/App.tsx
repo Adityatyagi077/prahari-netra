@@ -121,7 +121,7 @@ function Wordmark({ light = true }: { light?: boolean }) {
 function LocalStatus() {
   return <span className="inline-flex items-center gap-2 border border-[#1f3827] bg-[#0c1811] px-2.5 py-1 font-mono text-[10px] font-semibold text-[#86efac]">
     <span className="h-1.5 w-1.5 rounded-full bg-[#22c55e] shadow-[0_0_5px_#22c55e]" />
-    AIR-GAPPED // SECURE TELEMETRY
+    AIR-GAPPED · SECURE TELEMETRY
   </span>;
 }
 
@@ -309,7 +309,7 @@ function CameraFeed({ cameraId, thermal = false, night = false, stream, aiEnable
         <span>Check the recording in public/recordings.</span>
       </div>
     )}
-    {aiEnabled && <div className={cn('pointer-events-none absolute left-4 top-4 z-10 border px-2.5 py-1 font-mono text-[10px] font-bold tracking-wider', aiState==='active'?'border-[#22c55e]/70 bg-[#081e10]/90 text-[#4ade80] shadow-[0_0_10px_rgba(34,197,94,0.3)]':aiState==='connecting'?'border-[#f59e0b]/70 bg-[#211708]/90 text-[#fbbf24]':'border-[#ef4444]/70 bg-[#210908]/90 text-[#fca5a5]')}>LOCAL YOLO // {aiState==='active'?'NOMINAL ACTIVE':aiState==='connecting'?'CONNECTING...':aiState==='error'?'OFFLINE':'OFF'}</div>}
+    {aiEnabled && <div className={cn('pointer-events-none absolute left-4 top-4 z-10 border px-2.5 py-1 font-mono text-[10px] font-bold tracking-wider', aiState==='active'?'border-[#22c55e]/70 bg-[#081e10]/90 text-[#4ade80] shadow-[0_0_10px_rgba(34,197,94,0.3)]':aiState==='connecting'?'border-[#f59e0b]/70 bg-[#211708]/90 text-[#fbbf24]':'border-[#ef4444]/70 bg-[#210908]/90 text-[#fca5a5]')}>LOCAL YOLO · {aiState==='active'?'NOMINAL ACTIVE':aiState==='connecting'?'CONNECTING...':aiState==='error'?'OFFLINE':'OFF'}</div>}
     {aiEnabled && aiState==='error' && <div className="pointer-events-none absolute left-4 bottom-4 z-10 max-w-[80%] border border-[#ef4444]/60 bg-[#1f0a09]/95 px-3 py-1.5 font-mono text-[10px] font-semibold text-[#fca5a5] shadow-[0_0_12px_rgba(239,68,68,0.35)]">{aiMessage}</div>}
     {aiEnabled && aiState==='active' && <div className="pointer-events-none absolute right-4 top-4 z-10 grid grid-cols-4 gap-1.5">{[['PERSON', stats.person], ['VEHICLE', stats.vehicle], ['CAR', stats.car], ['PLATE', stats.plate_candidates]].map(([label, value]) => <div key={String(label)} className="min-w-[58px] border border-[#22c55e]/60 bg-[#081e10]/90 px-2 py-1 text-center shadow-[0_0_10px_rgba(34,197,94,0.18)]"><div className="font-mono text-[8px] text-[#86efac]">{label}</div><div className="font-mono text-sm font-extrabold text-[#dcfce7]">{value}</div></div>)}</div>}
     {thermal && <div className="pointer-events-none absolute bottom-4 right-4 z-10 border border-[#06b6d4]/70 bg-[#081b21]/90 px-2.5 py-1 font-mono text-[10px] font-bold text-[#38bdf8] shadow-[0_0_10px_rgba(6,182,212,0.3)]">IR THERMAL SENSOR</div>}
@@ -323,7 +323,7 @@ function IndiaMap({ compact = false, sector = 'All sectors', onCamera }: { compa
     <div className="absolute inset-0 map-grid opacity-70" />
     <div className="absolute left-4 top-4 z-20 flex flex-wrap items-center gap-3">
       <span className="eyebrow flex items-center gap-1.5"><Crosshair size={12} /> RADAR C4ISR MESH</span>
-      <span className="font-mono text-[10px] font-bold text-[#86efac]">28 STATES · 8 UTs // ORBAT BOUNDARIES</span>
+      <span className="font-mono text-[10px] font-bold text-[#86efac]">28 STATES · 8 UTs · ORBAT BOUNDARIES</span>
     </div>
     <div className="absolute right-4 top-4 z-20 flex gap-2">
       <span className="map-control"><Layers3 size={14} className="text-[#4ade80]" /> SENSOR OVERLAY ACTIVE</span>
@@ -445,7 +445,7 @@ function AppShell({ mode, children }: { mode: Mode; children: ReactNode }) {
         <div className="mx-3 mt-4 border border-[#22442d] bg-[#0c1811] px-3.5 py-3 tactical-corner">
           <div className="flex items-center justify-between">
             <span className="flex items-center gap-2 font-mono text-[10px] font-bold tracking-[.14em] text-[#86efac]">
-              <StatusDot /> {isAdmin ? 'DEFCON 2 // ADMIN' : 'DEFCON 3 // OFFICER'}
+              <StatusDot /> {isAdmin ? 'DEFCON 2 · ADMIN' : 'DEFCON 3 · OFFICER'}
             </span>
             <span className="border border-[#22c55e]/40 bg-[#14331e] px-1.5 py-0.5 font-mono text-[8px] font-extrabold text-[#4ade80]">COP-ACTIVE</span>
           </div>
@@ -490,7 +490,7 @@ function AppShell({ mode, children }: { mode: Mode; children: ReactNode }) {
         </div>
         <div className="flex items-center gap-4">
           <div className="hidden text-right sm:block font-mono">
-            <div className="text-xs font-bold text-[#f8fafc]">{isAdmin ? 'NATIONAL COMMAND CENTER // ORBAT' : 'LADAKH SECTOR // NORTH WATCH'}</div>
+            <div className="text-xs font-bold text-[#f8fafc]">{isAdmin ? 'NATIONAL COMMAND CENTER · ORBAT' : 'LADAKH SECTOR · NORTH WATCH'}</div>
             <div className="text-[10px] text-[#86efac]">STATION: PRAHARI-HQ · AIR-GAPPED · <span className="text-[#f8fafc]">{clock} IST</span></div>
           </div>
           <span className="avatar avatar-light">{isAdmin ? 'AS' : 'RD'}</span>
@@ -544,7 +544,7 @@ function Home() {
             </div>
             {/* Border sector labels */}
             <div className="entry-map-label" style={{ top: '8%', left: '50%', transform: 'translateX(-50%)' }}>
-              <span className="entry-map-dot" /> LOC // NORTHERN SECTOR
+              <span className="entry-map-dot" /> LOC · NORTHERN SECTOR
             </div>
             <div className="entry-map-label" style={{ top: '32%', right: '5%' }}>
               <span className="entry-map-dot" /> COMMAND
@@ -616,29 +616,43 @@ function Home() {
 
 function Login() {
   const [, setLocation] = useLocation();
-  const [role, setRole] = useState<Mode>('admin');
+  const [operatorId, setOperatorId] = useState('');
   const [password, setPassword] = useState('');
   const [notice, setNotice] = useState('');
 
-  const credentials: Record<Mode, string> = {
-    admin: 'admin@prahari',
-    officer: 'officer@prahari',
+  const credentials: Record<string, { role: Mode; password: string }> = {
+    'operator.admin': { role: 'admin', password: 'admin@prahari' },
+    'operator.officer': { role: 'officer', password: 'officer@prahari' },
+    'admin': { role: 'admin', password: 'admin@prahari' },
+    'officer': { role: 'officer', password: 'officer@prahari' },
   };
 
   const submit = (event: React.FormEvent) => {
     event.preventDefault();
-    if (password !== credentials[role]) {
-      setNotice('ACCESS DENIED · INVALID PASSWORD');
+    const key = operatorId.trim().toLowerCase();
+    const account = credentials[key];
+    if (!account || password !== account.password) {
+      setNotice('ACCESS DENIED · INVALID OPERATOR OR ACCESS VECTOR');
       return;
     }
-    const selectedRole = role;
-    const roleName = selectedRole === 'admin' ? 'ADMIN COMMAND' : 'GROUND OFFICER';
-    setNotice(`${roleName} · AUTHENTICATION SUCCESSFUL`);
+    setNotice('AUTHENTICATION SUCCESSFUL · SESSION ESTABLISHED');
     try {
-      sessionStorage.setItem('prahari-role', selectedRole);
+      sessionStorage.setItem('prahari-role', account.role);
       sessionStorage.setItem('prahari-authenticated', 'true');
+      sessionStorage.setItem('prahari-operator-id', key);
     } catch {}
-    window.setTimeout(() => setLocation(selectedRole === 'admin' ? '/admin' : '/officer'), 650);
+    appendTacticalLog(`Authenticated ${account.role === 'admin' ? 'admin command' : 'ground officer'}`, 'Login');
+    window.setTimeout(() => setLocation(account.role === 'admin' ? '/admin' : '/officer'), 500);
+  };
+
+  const exitSystem = () => {
+    try {
+      sessionStorage.removeItem('prahari-role');
+      sessionStorage.removeItem('prahari-authenticated');
+      sessionStorage.removeItem('prahari-operator-id');
+      sessionStorage.removeItem('prahari-officer-activity');
+    } catch {}
+    setLocation('/');
   };
 
   return <div className="command-login-page">
@@ -659,37 +673,29 @@ function Login() {
         <div className="command-login-card-head">
           <div>
             <div className="command-login-kicker">SECURE INSTANCE</div>
-            <h2>Operator authentication</h2>
+            <h2>Enter the secure instance</h2>
           </div>
           <span className="command-login-status"><span /> LOCAL</span>
         </div>
 
-        <p className="command-login-copy">Select your authorized rank and enter the corresponding access password.</p>
-
         <form onSubmit={submit} className="command-login-form">
-          <div className="command-login-label">SELECT RANK</div>
-          <div className="command-login-roles">
-            {([['admin', 'ADMIN', 'COMMAND AUTHORITY', 'National surveillance · all sectors'], ['officer', 'GROUND OFFICER', 'FIELD AUTHORITY', 'Assigned sector · Ladakh / North']] as const).map(([value, label, eyebrow, detail]) => (
-              <button
-                key={value}
-                type="button"
-                data-testid={`button-select-${value}`}
-                onClick={() => { setRole(value); setPassword(''); setNotice(''); }}
-                className={cn('command-role-option', role === value && 'command-role-option-active')}
-              >
-                <span className="command-role-radio"><span /></span>
-                <span className="command-role-text">
-                  <span className="command-role-eyebrow">{eyebrow}</span>
-                  <strong>{label}</strong>
-                  <small>{detail}</small>
-                </span>
-                {role === value && <CheckCircle2 size={17} className="command-role-check" />}
-              </button>
-            ))}
-          </div>
+          <label className="command-login-password-label command-login-operator-label">
+            OPERATOR ID
+            <input
+              data-testid="input-operator-id"
+              className="command-login-password"
+              type="text"
+              value={operatorId}
+              onChange={(event) => { setOperatorId(event.target.value); setNotice(''); }}
+              autoComplete="username"
+              placeholder="OPERATOR.ADMIN"
+              autoFocus
+              spellCheck={false}
+            />
+          </label>
 
           <label className="command-login-password-label">
-            ACCESS PASSWORD
+            ACCESS VECTOR
             <input
               data-testid="input-access-password"
               className="command-login-password"
@@ -697,8 +703,7 @@ function Login() {
               value={password}
               onChange={(event) => { setPassword(event.target.value); setNotice(''); }}
               autoComplete="current-password"
-              placeholder="ENTER ACCESS PASSWORD"
-              autoFocus
+              placeholder="ENTER ACCESS VECTOR"
             />
           </label>
 
@@ -719,20 +724,7 @@ function Login() {
         </div>
       </section>
 
-      <button
-        type="button"
-        className="command-login-exit"
-        data-testid="button-exit-system"
-        onClick={() => {
-          try {
-            sessionStorage.removeItem('prahari-role');
-            sessionStorage.removeItem('prahari-authenticated');
-            sessionStorage.removeItem('prahari-officer-activity');
-          } catch {}
-          setLocation('/');
-        }}
-        aria-label="Exit Prahari Netra system"
-      >
+      <button type="button" className="command-login-exit" data-testid="button-exit-system" onClick={exitSystem} aria-label="Exit Prahari Netra system">
         <LogOut size={12} />
         <span>EXIT SYSTEM</span>
       </button>
@@ -848,7 +840,7 @@ function PhoneLive() {
     return () => { pc.close(); pcRef.current = null; };
   }, [code, offer]);
 
-  const phoneUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'https://<LAPTOP-IP>:5173/phone' : `${window.location.origin}/phone`;
+  const phoneUrl = `${window.location.protocol}//${window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? '<LAPTOP-IP>' : window.location.hostname}:5173/phone?code=${encodeURIComponent(code)}`;
   return <><PageHeader eyebrow="COMMAND CONSOLE · MOBILE SENSOR" title="Phone live camera" detail="Connect a phone camera over the local network. The laptop receives the live WebRTC stream and runs local YOLO on every frame." action={<span className="status-label status-good"><Radio size={12}/> LOCAL WEBRTC</span>} />
     <div className="grid gap-6 xl:grid-cols-[1.25fr_.75fr]">
       <section className="feed-panel">
@@ -863,7 +855,12 @@ function PhoneLive() {
           <div className="eyebrow">PAIR PHONE</div>
           <div className="mt-3 text-xs text-muted-foreground">Open the phone page on the same Wi-Fi, enter this room code, then allow camera access.</div>
           <div className="mt-5 border border-[#22c55e]/40 bg-[#07130b] p-5 text-center"><div className="font-mono text-[9px] tracking-[.22em] text-[#86efac]">ROOM CODE</div><div className="mt-2 font-mono text-4xl font-black tracking-[.25em] text-[#dcfce7]">{code || '------'}</div></div>
-          <div className="mt-4 break-all border border-border bg-[#0b120d] p-3 font-mono text-[10px] text-[#94a3b8]">{phoneUrl}</div><div className="mt-2 text-[9px] text-muted-foreground">Use the LAN IP printed beside Vite's Network URL in the terminal.</div>
+          <div className="mt-4 break-all border border-border bg-[#0b120d] p-3 font-mono text-[10px] text-[#94a3b8]">{phoneUrl}</div>
+          <div className="mt-2 flex flex-wrap gap-2">
+            <button type="button" className="action-button action-secondary" onClick={() => navigator.clipboard?.writeText(phoneUrl)}><Check size={13}/> Copy phone link</button>
+            {window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1' && <a className="action-button action-quiet" href={phoneUrl} target="_blank" rel="noreferrer"><ArrowRight size={13}/> Open</a>}
+          </div>
+          <div className="mt-2 text-[9px] text-muted-foreground">If this admin page is on localhost, replace &lt;LAPTOP-IP&gt; with the Vite Network IP shown in the terminal.</div>
           <div className="mt-3 text-[10px] text-[#86efac]">{status}</div>
         </section>
         <section className="panel p-5"><div className="eyebrow">NIGHT OPERATION</div><p className="mt-3 text-xs leading-5 text-muted-foreground">Night mode enhances low-light frames before YOLO inference while the display applies a night-vision treatment. Thermal mode is a visual IR-style palette; it does not turn a normal phone camera into a true thermal sensor.</p></section>
@@ -887,13 +884,15 @@ function PhoneSender() {
     if (!normalized) { setStatus('Enter a room code first'); return; }
     try {
       setStatus('Requesting phone camera…');
+      if (!window.isSecureContext || !navigator.mediaDevices?.getUserMedia) throw new Error('Camera requires HTTPS. Open the phone page using the secure LAN URL.');
+      if (stream) stream.getTracks().forEach((track) => track.stop());
       const media = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: 'environment' }, width: { ideal: 1280 }, height: { ideal: 720 } }, audio: false });
       setStream(media);
       if (videoRef.current) { videoRef.current.srcObject = media; await videoRef.current.play().catch(() => {}); }
       const pc = new RTCPeerConnection({ iceServers: [] });
       pcRef.current = pc;
       media.getTracks().forEach((track) => pc.addTrack(track, media));
-      pc.onconnectionstatechange = () => { if (pc.connectionState === 'connected') setStatus('LIVE · phone camera connected'); if (['failed','disconnected'].includes(pc.connectionState)) setStatus(`Link ${pc.connectionState}`); };
+      pc.onconnectionstatechange = () => { if (pc.connectionState === 'connected') setStatus('LIVE · phone camera connected'); if (['failed','disconnected'].includes(pc.connectionState)) setStatus(`Link ${pc.connectionState} · keep both devices on the same Wi-Fi`); };
       const offer = await pc.createOffer();
       await pc.setLocalDescription(offer);
       await waitForIceGathering(pc);
@@ -975,7 +974,7 @@ function AdminOverview() {
         <span className="text-[#cbd5e1]">EDGE AI: <strong className="text-[#86efac]">YOLO-v11 ACTIVE</strong></span>
       </div>
       <div className="flex items-center gap-2.5 text-[10px]">
-        <span className="border border-[#22c55e]/40 bg-[#122e1b] px-2 py-0.5 font-bold text-[#4ade80]">DEFCON 2 // GUARDED</span>
+        <span className="border border-[#22c55e]/40 bg-[#122e1b] px-2 py-0.5 font-bold text-[#4ade80]">DEFCON 2 · GUARDED</span>
         <span className="font-semibold text-[#94a3b8]">{nowISTTime()} IST (UTC+05:30)</span>
       </div>
     </div>
@@ -996,12 +995,9 @@ function AdminOverview() {
       }
     />
 
-    {/* Metric Telemetry Row */}
-    <div className="grid gap-3.5 sm:grid-cols-2 xl:grid-cols-4">
-      <Metric label="Active Threat Incidents" value="04" detail="02 critical · immediate command action" tone="alert" icon={AlertTriangle} />
-      <Metric label="Active Sensor Mesh" value="11 / 12" detail="91.7% optical/thermal mesh reporting" tone="good" icon={Camera} />
-      <Metric label="Target Inferences · 24h" value="126" detail="+18 confirmed targets vs prior cycle" icon={Sparkles} />
-      <Metric label="Evidence Cryptographic Integrity" value="99.2%" detail="124 of 125 SHA-256 blocks verified" tone="good" icon={ShieldCheck} />
+    <div className="overview-kpi-row">
+      <Metric label="Active Threats" value="04" detail="02 critical · immediate command action" tone="alert" icon={AlertTriangle} />
+      <Metric label="Sensor Mesh" value="11 / 12" detail="91.7% optical / thermal nodes reporting" tone="good" icon={Camera} />
     </div>
 
     <OfficerPresencePanel />
@@ -1012,7 +1008,7 @@ function AdminOverview() {
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#1c2e22] bg-[#09120d] px-5 py-3.5">
           <div>
             <div className="eyebrow flex items-center gap-1.5">
-              <Crosshair size={13} /> GEOSPATIAL INTELLIGENCE // COP
+              <Crosshair size={13} /> GEOSPATIAL INTELLIGENCE · COP
             </div>
             <h2 className="mt-0.5 font-mono text-sm font-bold tracking-wide text-[#f8fafc]">Border Sensor Network Radar Frame</h2>
           </div>
@@ -1050,7 +1046,7 @@ function AdminOverview() {
             >
               <div className="flex items-start justify-between gap-3">
                 <span className={cn('severity', `severity-${incident.severity.toLowerCase()}`)}>
-                  {incident.severity} // THREAT
+                  {incident.severity} · THREAT
                 </span>
                 <span className="font-mono text-[11px] font-semibold text-[#86efac]">{incident.time.split(' · ')[1]} HRS</span>
               </div>
@@ -1214,7 +1210,7 @@ function AdminCameras() {
   const [query, setQuery] = useState('');
   const [filter, setFilter] = useState('All');
   const filtered = cameras.filter((camera) => (filter === 'All' || camera.status === filter) && `${camera.id} ${camera.sector} ${camera.site}`.toLowerCase().includes(query.toLowerCase()));
-  return <><PageHeader eyebrow="COMMAND CONSOLE · SENSOR NETWORK" title="Camera explorer" detail="All connected camera sources are available in the operational wall. Select a camera for detailed inspection." action={<Button kind="secondary" testId="button-camera-refresh" onClick={() => { appendTacticalLog('Refreshed camera mesh'); window.location.reload(); }}><RefreshCw size={14} /> Refresh mesh</Button>} /><div className="panel"><div className="flex flex-wrap items-center justify-between gap-3 border-b border-border p-4"><label className="relative block min-w-[240px] flex-1"><Search size={15} className="absolute left-3 top-2.5 text-muted-foreground" /><input data-testid="input-camera-search" className="field-input pl-9" placeholder="Search node, sector, or site" value={query} onChange={(event) => setQuery(event.target.value)} /></label><div className="flex gap-1">{['All', 'Online', 'Degraded', 'Offline'].map((item) => <button key={item} onClick={() => setFilter(item)} className={cn('filter-button', filter === item && 'filter-button-active')}>{item}</button>)}</div></div><div className="grid gap-3 p-4 md:grid-cols-2 xl:grid-cols-3">{filtered.map((camera) => <button key={camera.id} onClick={() => setLocation(`/admin/cameras/${camera.id}`)} className="camera-card overflow-hidden text-left"><div className="relative"><CameraFeed cameraId={camera.id} thermal aiEnabled className="pointer-events-none h-[210px]"/><div className="absolute left-3 top-3 z-10 border border-[#c2d39a]/70 bg-[#18271e]/80 px-2 py-1 font-mono text-[9px] text-[#deebc1]">RECORDED FEED</div><span className="absolute bottom-3 right-3 z-10 flex items-center gap-1 font-mono text-[9px] text-[#d7dfc2]"><span className="signal-pulse" /> {camera.status}</span></div><div className="p-4"><div className="flex justify-between gap-3"><div><div className="font-mono text-[10px] text-muted-foreground">{camera.id}</div><h3 className="mt-1 text-sm font-semibold">{camera.site}</h3></div><StatusDot status={camera.status} /></div><div className="mt-4 grid grid-cols-3 gap-2 border-t border-border pt-3 text-[10px]"><span><span className="block text-muted-foreground">SECTOR</span><span className="mt-1 block">{camera.sector}</span></span><span><span className="block text-muted-foreground">HEALTH</span><span className="mt-1 block">{camera.health || '—'}%</span></span><span><span className="block text-muted-foreground">AI / 24H</span><span className="mt-1 block">{camera.detections}</span></span></div></div></button>)}</div></div></>;
+  return <><PageHeader eyebrow="COMMAND CONSOLE · SENSOR NETWORK" title="Camera explorer" detail="All connected camera sources are available in the operational wall. Select a camera for detailed inspection." action={<Button kind="secondary" testId="button-camera-refresh" onClick={() => { appendTacticalLog('Refreshed camera mesh'); window.location.reload(); }}><RefreshCw size={14} /> Refresh mesh</Button>} /><div className="panel"><div className="camera-search-toolbar border-b border-border p-4"><label className="relative block min-w-0"><Search size={15} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" /><input data-testid="input-camera-search" className="field-input camera-search-input pl-9 pr-10" placeholder="Search node, sector, or site" value={query} onChange={(event) => setQuery(event.target.value)} />{query && <button type="button" className="camera-search-clear" onClick={() => setQuery('')} aria-label="Clear camera search"><X size={14}/></button>}</label><div className="camera-filter-group" role="group" aria-label="Camera status filter">{['All', 'Online', 'Degraded', 'Offline'].map((item) => <button key={item} onClick={() => setFilter(item)} className={cn('filter-button', filter === item && 'filter-button-active')}>{item}</button>)}</div></div><div className="grid gap-3 p-4 md:grid-cols-2 xl:grid-cols-3">{filtered.map((camera) => <button key={camera.id} onClick={() => setLocation(`/admin/cameras/${camera.id}`)} className="camera-card overflow-hidden text-left"><div className="relative"><CameraFeed cameraId={camera.id} thermal aiEnabled className="pointer-events-none h-[210px]"/><div className="absolute left-3 top-3 z-10 border border-[#c2d39a]/70 bg-[#18271e]/80 px-2 py-1 font-mono text-[9px] text-[#deebc1]">RECORDED FEED</div><span className="absolute bottom-3 right-3 z-10 flex items-center gap-1 font-mono text-[9px] text-[#d7dfc2]"><span className="signal-pulse" /> {camera.status}</span></div><div className="p-4"><div className="flex justify-between gap-3"><div><div className="font-mono text-[10px] text-muted-foreground">{camera.id}</div><h3 className="mt-1 text-sm font-semibold">{camera.site}</h3></div><StatusDot status={camera.status} /></div><div className="mt-4 grid grid-cols-3 gap-2 border-t border-border pt-3 text-[10px]"><span><span className="block text-muted-foreground">SECTOR</span><span className="mt-1 block">{camera.sector}</span></span><span><span className="block text-muted-foreground">HEALTH</span><span className="mt-1 block">{camera.health || '—'}%</span></span><span><span className="block text-muted-foreground">AI / 24H</span><span className="mt-1 block">{camera.detections}</span></span></div></div></button>)}</div></div></>;
 }
 
 function CameraDetail() {

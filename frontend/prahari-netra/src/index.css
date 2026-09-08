@@ -195,8 +195,8 @@
 .metric-panel {
   background: linear-gradient(180deg, #0e1812 0%, #0a120e 100%);
   border: 1px solid #1c2e22;
-  min-height: 130px;
-  padding: 18px 20px;
+  min-height: 0;
+  padding: 15px 17px;
   position: relative;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
@@ -1150,8 +1150,8 @@
 .command-login-main {
   position: relative;
   z-index: 2;
-  width: min(100%, 590px);
-  padding: 26px 18px 18px;
+  width: min(100%, 470px);
+  padding: 24px 18px 18px;
 }
 .command-login-header { text-align: center; }
 .command-login-emblem {
@@ -1195,8 +1195,8 @@
 }
 .command-login-card {
   position: relative;
-  width: 100%;
-  margin-top: 24px;
+  width: min(100%, 350px);
+  margin: 22px auto 0;
   padding: 22px 24px 18px;
   border: 1px solid #1d492b;
   background: linear-gradient(145deg, rgba(5, 16, 9, .97), rgba(3, 10, 6, .97));
@@ -1335,4 +1335,49 @@
   .command-login-roles { grid-template-columns: 1fr; }
   .command-role-option { min-height: 78px; }
   .command-login-footer { justify-content: center; text-align: center; }
+}
+
+
+/* Overview: compact KPIs that size to their content */
+.overview-kpi-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.overview-kpi-row .metric-panel { min-height: 0; }
+
+/* Camera explorer: search never collides with status filters */
+.camera-search-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+}
+.camera-search-toolbar > label { min-width: 0; }
+.camera-search-input { margin-top: 0; }
+.camera-filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px;
+}
+.camera-search-clear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  transform: translateY(-50%);
+  color: #64748b;
+}
+.camera-search-clear:hover { color: #86efac; }
+.command-login-operator-label { margin-top: 0; }
+
+@media (max-width: 760px) {
+  .overview-kpi-row { grid-template-columns: 1fr; }
+  .camera-search-toolbar { grid-template-columns: 1fr; }
+  .camera-filter-group { justify-content: flex-start; }
 }

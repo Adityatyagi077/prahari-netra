@@ -6,10 +6,15 @@ cd "$(dirname "$0")"
 if [ ! -x ".venv/bin/python" ]; then
   python3 -m venv .venv
 fi
-PYTHON="$(pwd)/.venv/bin/python"
-if ! "$PYTHON" -c "import fastapi, uvicorn, ultralytics, cv2, numpy" >/dev/null 2>&1; then
-  "$PYTHON" -m pip install --upgrade pip
-  "$PYTHON" -m pip install -r requirements.txt
+KNOWN_GOOD_ENV="/home/aditya-tyagi/Downloads/NuttyMushyLogic/artifacts/prahari-netra/.venv-ai"
+if [ -x "$KNOWN_GOOD_ENV/bin/python" ] && "$KNOWN_GOOD_ENV/bin/python" -c "import fastapi, uvicorn, ultralytics, cv2, numpy" >/dev/null 2>&1; then
+  PYTHON="$KNOWN_GOOD_ENV/bin/python"
+else
+  PYTHON="$(pwd)/.venv/bin/python"
+  if ! "$PYTHON" -c "import fastapi, uvicorn, ultralytics, cv2, numpy" >/dev/null 2>&1; then
+    "$PYTHON" -m pip install --upgrade pip
+    "$PYTHON" -m pip install -r requirements.txt
+  fi
 fi
 "$PYTHON" -c "import fastapi, uvicorn, ultralytics, cv2, numpy; print('YOLO runtime: OK')"
 
